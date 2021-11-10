@@ -36,6 +36,8 @@ apis.forEach(api => {
             let subBtn=createMyOwnElement(methodsWrapper,'button',method,'btn btn-success mx-2')
             subBtn.addEventListener('click',async function(){
                 dataWrapper.textContent=''
+                let loading;
+                if (dataWrapper.textContent=='') loading=createMyOwnElement(dataWrapper,'h2','Loading . . .','text-center')
                 let data;
                 try{
                     switch(method){
@@ -64,6 +66,7 @@ apis.forEach(api => {
                     }
                 createMyOwnElement(dataWrapper,'h1',api.title,'text-center')
                 if(data){
+                    loading.textContent=''
                     const table=createMyOwnElement(dataWrapper,'table','','table table-striped')
                     const thead=createMyOwnElement(table,'thead')
                     api.attr.forEach(item=>{
@@ -77,6 +80,7 @@ apis.forEach(api => {
                         })
                     })
                 }else{
+                    loading.textContent=''
                     createMyOwnElement(dataWrapper,'h3',`${method} request sent`,'text-center mt-5')
                 }
                 }
