@@ -35,7 +35,7 @@ if (addUserForm) {
             balance: this.elements.balance.value,
             transactions: []
         }
-        addUser(user)  //line 30 in myFunctions
+        addUser(user)  //line 65 in myFunctions
         this.reset()
         window.location.replace("index.html");
     })
@@ -43,7 +43,7 @@ if (addUserForm) {
 //showing user
 if (userName) {
     try {
-        let user = getCurrentUserFromLocalStorage("user") //line 15 in myFunctions
+        let user = getCurrentUserFromLocalStorage("user") //line 16 in myFunctions
         userName.innerHTML = user.userName
         userAdress.innerHTML = `${user.adress.city} , ${user.adress.street} , Building No ${user.adress.building}`;
         userBalance.innerHTML = ` $ ${user.balance}`
@@ -51,7 +51,7 @@ if (userName) {
         user.transactions.forEach(t => {
             const tr = createMyOwnElement(transactions, "tr",null,t.type == 'Add' ? 'greenborder' : 'redborder')
             createMyOwnElement(tr, "td", t.type, t.type == 'Add' ? 'green' : 'red')
-            createMyOwnElement(tr, "td", t.amount, 'text-center')  // line 21 in myFunctions
+            createMyOwnElement(tr, "td", t.amount, 'text-center')  // line 23 in myFunctions
             createMyOwnElement(tr, "td", t.date)
         })
         localStorage.removeItem('user')
@@ -64,7 +64,7 @@ if (userName) {
 if (addedBalanceForm) {
     let user = getCurrentUserFromLocalStorage("user")
     try {
-        transactionProcess(addedBalanceForm, 'Add', user.id)  //line 37 in myFunctions
+        transactionProcess(addedBalanceForm, 'Add', user.id)  //line 73 in myFunctions
         
     } catch (err) {
         console.error(err)
