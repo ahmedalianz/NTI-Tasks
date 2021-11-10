@@ -1,11 +1,8 @@
 import {
     getCurrentUserFromLocalStorage,
-    readLocalStaorageData,
     createMyOwnElement,
     transactionProcess,
-    addBalancePage,
-    withdrawPage,
-    showUserPage,
+    showUsers,
     addUser
 } from './myFunctions.js'
 
@@ -19,25 +16,9 @@ const addUserForm = document.querySelector("#addUser"),
     withdrawBalanceForm = document.querySelector('#withdrawBalance'),
     allUsersTable = document.querySelector("#users");
 
-const showUsers = () => {
-    localStorage.removeItem('user')
-    let users = readLocalStaorageData()
-    users.forEach((user) => {
-        const tr = createMyOwnElement(allUsersTable,"tr")
-        createMyOwnElement(tr, "td", user.id)
-        createMyOwnElement(tr, "td", user.userName)
-        const td = createMyOwnElement(tr, "td", null, 'd-flex justify-content-between')
-        const showBtn = createMyOwnElement(td, "button", "Show Details", "btn btn-primary mx-2 showBtn")
-        showBtn.addEventListener("click", () => showUserPage(user.id))
-        const addBtn = createMyOwnElement(td, "button", "Add Balance", "btn btn-success mx-2")
-        addBtn.addEventListener("click", () => addBalancePage(user.id))
-        const withdrawBtn = createMyOwnElement(td, "button", "Withdraw Balance", "btn btn-warning mx-2")
-        withdrawBtn.addEventListener('click', () => withdrawPage(user.id))
-    })
-}
 //show all users
 if (allUsersTable) {
-    showUsers()
+    showUsers(allUsersTable)
 }
 //adding user
 if (addUserForm) {
