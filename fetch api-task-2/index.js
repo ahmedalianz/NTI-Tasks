@@ -31,6 +31,7 @@ apis.forEach(api => {
     let btn=createMyOwnElement(btnWrapper,'button',api.title,'btn btn-primary mx-2')
     btn.addEventListener('click',()=>{
         methodsWrapper.textContent=''
+        dataWrapper.textContent=''
         api.methods.forEach(method => {
             let subBtn=createMyOwnElement(methodsWrapper,'button',method,'btn btn-success mx-2')
             subBtn.addEventListener('click',async function(){
