@@ -56,7 +56,7 @@ if (addUserForm) {
         }
         addUser(user)  //line 30 in myFunctions
         this.reset()
-        window.location.replace("users.html");
+        window.location.replace("index.html");
     })
 }
 //showing user
