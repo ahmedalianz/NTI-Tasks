@@ -79,3 +79,6 @@ if (withdrawBalanceForm) {
         console.error(err)
     }
 }
+else{
+    console.error('page not found')
+}
