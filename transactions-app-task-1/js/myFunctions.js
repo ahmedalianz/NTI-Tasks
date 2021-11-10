@@ -1,4 +1,5 @@
 // -------------------------------------Local storage functions----------------------------------------//
+
 export const readLocalStaorageData = () => {
     let data
     try {
@@ -18,6 +19,7 @@ export const getCurrentUserFromLocalStorage=(key) =>{
     return allUsers.find(u =>u.id===userId)
 }
 // -------------------------------------creating customized element----------------------------------------//
+
 export const createMyOwnElement = (parent, ele, txt = null, classes = null) => {
     let myElement = document.createElement(ele)
     parent.appendChild(myElement)
@@ -44,6 +46,7 @@ export const showUsers = (uesrsTable) => {
     })
 }
 //-------------------------------------navigation functions------------------------------------//
+
 export const showUserPage = (id) => {
     localStorage.setItem("user", JSON.stringify(id))
     window.location.replace('showUser.html')
@@ -58,6 +61,7 @@ export const withdrawPage=(id) =>{
 }
 
 //--------------------------------------------add user--------------------------------//
+
 export const addUser = (user) => {
     let data = readLocalStaorageData();
     data.push(user)
@@ -65,6 +69,7 @@ export const addUser = (user) => {
 }
 
 //-----inserting transaction and change balance >>runs the next 2 functions------------//
+
 export function transactionProcess(form,type,id){
     form.addEventListener('submit', function (e) {
         e.preventDefault()
@@ -81,6 +86,7 @@ export function transactionProcess(form,type,id){
 }
 
 //-----------------------inserting transaction into transaction history---------------------//
+
 export const addTransaction=(transaction,id) =>{
     let allUsers=readLocalStaorageData()
     let currentUser=allUsers.find(u =>u.id==id)
@@ -89,6 +95,7 @@ export const addTransaction=(transaction,id) =>{
 }
 
 //-------------------------------------change user balance----------------------//
+
 export const changeBalance=(amount,id)=>{
     let allUsers=readLocalStaorageData()
     let user=allUsers.find(u =>u.id===id)
