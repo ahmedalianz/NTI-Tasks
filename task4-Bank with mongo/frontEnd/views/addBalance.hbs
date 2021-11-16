@@ -1,0 +1,15 @@
+<div>
+    {{>header}}
+    {{>navbar}}
+    <section class="container my-3">
+        <form method="POST" class="my-2 border border-2 border-primary p-3">
+            <div class="mb-3">
+                <input placeholder="add balance" class="form-control" name="balance" type='number' max="6000" min="100">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </section>
+    {{>footer}}
+</div>

@@ -1,0 +1,65 @@
+{{>header}}
+{{>navbar}}
+<section class="container-fluid my-3 p-4">
+    <div class="top d-flex justify-content-between">
+        <div class="d-flex">
+            <img src="https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                alt="no avatar">
+            <div class="personalData ps-3">
+                <h1>{{user.name}}</h1>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt pe-2"></i>
+                    <span>{{user.city}},{{user.street}},Building no.{{user.building}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Account Information</h5>
+                    <div class="card-text">
+                        acc number :<span>{{user.id}}</span><br />
+                        <span class="balance">initial balance : <span>{{user.initialBalance}}</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom d-flex justify-content-evenly">
+        <div class="tranaction">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Transactions History</h5>
+                    <div class="card-text">
+                        <table class="table">
+                            <thead>
+                                <th>type</th>
+                                <th>Amount</th>
+                                <th class="text-center">Date</th>
+                            </thead>
+                            <tbody>
+                                {{#if noData}}
+                                <tr class="alert alert-danger">
+                                    <td colspan="5">
+                                        no transactions found yet
+                                    </td>
+                                </tr>
+                                {{else}}
+                                {{#each user.transactions}}
+                                <tr scope='row'></tr>
+                                <td class={{this.class}}>{{this.type}}</td>
+                                <td>{{this.amount}}</td>
+                                <td>{{this.date}}</td>
+                                {{/each}}
+                                {{/if}}
+                            </tbody>
+                        </table>
+                        <span class="balance">current balance : <span>{{user.currentBalance}}</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{>footer}}

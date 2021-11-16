@@ -1,0 +1,27 @@
+<div>
+    {{>header}}
+    {{>navbar}}
+    <section class="container my-3">
+        <form method="POST" action="/adduser" enctype="multipart/form" class="my-2 border border-2 border-primary p-3">
+            <div class="mb-3">
+                <input placeholder="username" name="name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input placeholder="city" name="city" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input placeholder="street" name="street" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input placeholder="building" type="number" name="building" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input placeholder="Balance" name="initialBalance" type="number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary">Add Customer</button>
+            </div>
+        </form>
+    </section>
+    {{>footer}}
+</div>

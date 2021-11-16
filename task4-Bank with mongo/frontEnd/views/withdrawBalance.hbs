@@ -1,0 +1,16 @@
+<div>
+    {{>header}}
+    {{>navbar}}
+    <section class="container my-3">
+        <form method="POST" class="my-2 border border-2 border-primary p-3">
+            <div class="mb-3">
+                <input placeholder="withdraw balance" class="form-control" name="balance" type='number' min='100'
+                    max={{user.cuurentBalance}} min="100">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-danger">withdraw</button>
+            </div>
+        </form>
+    </section>
+    {{>footer}}
+</div>
