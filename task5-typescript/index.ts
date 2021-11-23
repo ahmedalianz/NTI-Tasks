@@ -5,44 +5,49 @@ interface ISizes{
 interface ICategories{
     category:string
 }
-interface IProduct{
-    name:string
-    price:number
-    size:string
-    category:string
-}
 class Product{
-    products:IProduct[]=[]
-    size:ISizes[]=[]
-    category:ICategories[]=[]
+    static count=0
+    pName:string
+    pPrice:number
+    pSize:string
+    pCategory:string
+    sizes:ISizes[]=[]
+    categories:ICategories[]=[]
+    constructor(name:string,price:number,pSize:string,pCategory:string){
+        this.pName=name
+        this.pPrice=price
+        this.pSize=pSize
+        this.pCategory=pCategory
+        Product.count++
+    }
     addCategory(singleCategory:ICategories){
-        this.category.push(singleCategory)
+        this.categories.push(singleCategory)
     }
     countCatgs():void{
-        console.log(this.category.length)
+        console.log(this.categories.length)
     }
     addSize(singleSize:ISizes){
-        this.size.push(singleSize)
+        this.sizes.push(singleSize)
     }
     deleteSize(size:string){
-        this.size=this.size.filter(s => s.size!=size)
+        this.sizes=this.sizes.filter(s => s.size!=size)
     }
-    addProduct(singleProduct:IProduct){
-        this.products.push(singleProduct)
-    }
-    countProducts():void{
-        console.log(this.products.length)
+    static countProducts():void{
+        console.log(`Products count : ${this.count}`)
     }
 }
-const p=new Product()
-p.addProduct({name:'mobile',price:5000,size:"m",category:"phones"})
-p.addProduct({name:'tv',price:8000,size:"l",category:"tvs"})
-p.addCategory({category:"phones"})
-p.addCategory({category:"tvs"})
-p.addSize({size:"m",q:2})
-p.addSize({size:"s",q:4})
-p.addSize({size:"m",q:5})
-p.countCatgs()
-p.countProducts()
-p.deleteSize('m')
-console.log(p)
+const p1=new Product('mobile',5000,"m","phones")
+const p2=new Product('tv',8000,"l","tvs")
+const p3=new Product('labtop',9500,"l","labtops")
+p1.addCategory({category:"phones"})
+p2.addCategory({category:"tvs"})
+p1.addSize({size:"m",q:2})
+p2.addSize({size:"s",q:4})
+p2.addSize({size:"m",q:5})
+p1.countCatgs()
+p2.countCatgs()
+p3.countCatgs()
+Product.countProducts()
+p2.deleteSize('m')
+console.log('p1',p1)
+console.log('p2',p2)
